@@ -18,6 +18,13 @@ services:
       - prodnetwork
     volumes:
       - nexus-data:/nexus-data
+  codenvy:
+    restart: always
+    networks:
+      - prodnetwork
+    depends_on:
+      - jenkins
+    image: codenvy/cli
   jenkins:
     build: ./jenkins
     restart: always
